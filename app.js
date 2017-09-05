@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
 var messageRoutes = require('./routes/messages');
+var userRoutes = require('./routes/user');
 var appRoutes = require('./routes/app');
 
 
@@ -33,6 +34,7 @@ app.use(function (req, res, next) {
 });
 
 app.use('/message', messageRoutes);
+app.use('/user', userRoutes);
 app.use('/', appRoutes);
 
 // catch 404 and forward to error handler

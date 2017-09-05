@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
-
+import { AuthService } from "./auth/auth.service";
 import { AppComponent } from "./app.component";
 import { MessageComponent } from "./messages/message.component";
 import { MessageListComponent } from "./messages/message-list.component";
@@ -35,6 +35,7 @@ import { SigninComponent } from "./auth/signin.component";
         ReactiveFormsModule,
         HttpModule
     ],
+    providers:[AuthService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

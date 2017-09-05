@@ -1,16 +1,22 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { AuthService } from "./auth.service";
+import { User } from "./user.model";
 
 @Component({
     selector: 'app-signup',
     templateUrl: './signup.component.html'
 })
 export class SignupComponent implements OnInit {
+    private 
     myForm: FormGroup;
-
+    constructor(private authService:AuthService){}
     onSubmit() {
         console.log(this.myForm);
-        this.myForm.reset();
+        let user = new User(this.myForm.value.email, this.myForm.value.password, this.myForm.value.firstName, this.myForm.value.lastName);
+        this.authService.signup(user).subscribe((data) => {
+            console.log(data);
+        })
     }
 
     ngOnInit() {
